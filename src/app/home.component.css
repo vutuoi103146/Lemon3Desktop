@@ -30,6 +30,7 @@ nav ul a {
 article {
     float: left;
     /* border-left: 1px solid gray; */
+    
     padding: 1em;
     overflow: hidden;
 }
