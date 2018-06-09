@@ -51,8 +51,7 @@ input[type="text"],input[type="password"]
     border-width: thin !important;
     border-color:lightgray !important; 
     font-size: 11px !important;
-    border-radius: 5px;
-
+    margin-bottom: 10px;
 }
 
 body{
