@@ -13,6 +13,11 @@ body {
     overflow-y: auto;
     
 }
+input[type="text"],input[type="password"]
+{
+    height: 30px !important;
+    line-height: 30px !important;
+}
 .form-control {
     background-color: #ffffff;
     background-image: none;

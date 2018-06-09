@@ -7,16 +7,18 @@ import { routing }        from './app.routing';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListUsersComponent } from './users/list-users/list-users.component';
 import { UserService } from './shared/user.service';
+import { SignUpComponent } from './users/sign-up/sign-up.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
+        ToastrModule.forRoot(),
         HttpClientModule,
         routing
     ],
@@ -27,7 +29,7 @@ import { UserService } from './shared/user.service';
         FooterComponent,
         LoginComponent,
         ListUsersComponent,
-        RegisterComponent
+        SignUpComponent
     ],
     providers: [
         AuthGuard,
