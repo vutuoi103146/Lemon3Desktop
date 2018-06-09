@@ -8,7 +8,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class LoginComponent implements OnInit {
     model: any = {};
-    loading = false;
     returnUrl: string;
 
     constructor(
@@ -20,7 +19,8 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit() {
-        this.loading = true;
-        this.router.navigate([this.returnUrl]);
+        console.log("home")
+        localStorage.setItem("currentUser","login");
+        this.router.navigate(['']);
     }
 }

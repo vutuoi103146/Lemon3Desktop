@@ -7,10 +7,15 @@ import { ListUsersComponent } from './users/list-users/list-users.component';
 
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: '', component: HomeComponent, canActivate: [AuthGuard],children:
+        [
+            {
+                path : 'users',
+                component: ListUsersComponent
+            },
+        ] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'users', component: ListUsersComponent, outlet: 'home' },
     { path: '**', redirectTo: '' }
 ];
 
