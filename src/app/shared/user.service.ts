@@ -3,32 +3,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Response } from "@angular/http";
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
-import { User } from './user.model';
+import { T3UsersLogin } from './user.model';
 import { query } from '@angular/animations';
 
 @Injectable()
 export class UserService {
-  readonly rootUrl = 'http://localhost:35257';
+  readonly rootUrl = 'http://localhost:3081';
   constructor(private http: HttpClient) {
     
    }
-  registerUser(user: User) {
-    const body: User = {
-      UserName: user.UserName,
-      Password: user.Password,
-      Email: user.Email,
-      FirstName: user.FirstName,
-      LastName: user.LastName,
-      PhoneNumber: user.PhoneNumber,
-    }
-    var reqHeader = new HttpHeaders({'No-Auth':'True'});
-    return this.http.post(this.rootUrl + '/api/User/Register', body,{headers : reqHeader});
+  registerUser(user: T3UsersLogin) {
+       var reqHeader = new HttpHeaders({'Content-Type': 'application/json'});
+    console.log(user);
+    return this.http.post(this.rootUrl + '/api/user/Post', user,{headers : reqHeader});
   }
 
-  updateUser(user: User) {
+  updateUser(user: T3UsersLogin) {
     var sql: Query =
     {
-      query: "Update [User] set Email ='" + user.Email + "', LastName =N'" + user.LastName + "', FirstName =N'" + user.FirstName + "', PhoneNumber ='" + user.PhoneNumber +"' where UserName ='" +  user.UserName +"'"
+      query: "Update [User] set Email ='" + "', LastName =N'" + user.LastName + "', FirstName =N'" + user.FirstName + "', PhoneNumber ='" + user.PhoneNumber +"' where UserName ='" +  user.UserName +"'"
     } 
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json'});
     return  this.http.post(this.rootUrl+'/api/SqlServer/ExecSQL', sql, { headers: reqHeader });

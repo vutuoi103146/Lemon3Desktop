@@ -1,7 +1,7 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr'
-import { User } from '../../shared/user.model';
+import { T3UsersLogin } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -14,7 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 export class SignUpComponent implements OnInit {
-  user: User;
+  user: T3UsersLogin;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   isUserValid: boolean = true;
   url: string = "";
@@ -48,22 +48,24 @@ export class SignUpComponent implements OnInit {
     this.user = {
       UserName: '',
       Password: '',
-      Email: '',
       FirstName: '',
       LastName: '',
       PhoneNumber: '',
+      PictureURL:'',
+      Roles:'',
+      Email:'',
     }
   }
 
   OnSubmit(form: NgForm) {
     this.userService.registerUser(form.value)
       .subscribe((data: any) => {
-        if (data.Succeeded == true) {
+        if (data) {
           this.resetForm(form);
           this.toastr.success('User registration successful');
         }
         else
-          this.toastr.error(data.Errors[0]);
+          this.toastr.error(data);
       });
   }
 
