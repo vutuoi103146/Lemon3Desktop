@@ -11,8 +11,8 @@ hr {
     border: thin  solid silver;
     box-shadow: 1px 1px silver;
     padding-bottom: 25px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
     background-color: white;
 }
 #btnSignUp
