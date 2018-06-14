@@ -17,6 +17,7 @@ export class UserActiveComponent implements OnInit {
     this.router.queryParams.subscribe(params => {
       this.username = params["username"];
       this.keyString = params["keyString"];
+      alert(this.username + " : " +  this.keyString)
       this.userService.userActive(this.username, this.keyString).subscribe((data: any) => {
           this.msg ="Account active success."
           this.isSuccess = true;

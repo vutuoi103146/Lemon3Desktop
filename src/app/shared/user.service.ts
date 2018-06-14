@@ -14,7 +14,6 @@ export class UserService {
    }
   registerUser(user: T3UsersLogin) {
        var reqHeader = new HttpHeaders({'Content-Type': 'application/json'});
-    console.log(user);
     return this.http.post(this.rootUrl + '/api/user/Post', user,{headers : reqHeader});
   }
 

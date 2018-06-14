@@ -7,4 +7,5 @@ export class T3UsersLogin {
     Roles: string;
     PictureURL: string;
     Email: string;
+    Url: string;
 }

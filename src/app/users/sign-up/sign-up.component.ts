@@ -12,7 +12,6 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./sign-up.component.css']
 })
 
-
 export class SignUpComponent implements OnInit {
   user: T3UsersLogin;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
@@ -54,11 +53,13 @@ export class SignUpComponent implements OnInit {
       PictureURL:'',
       Roles:'',
       Email:'',
+      Url :'',
     }
   }
 
   OnSubmit(form: NgForm) {
-    this.userService.registerUser(form.value)
+    this.user.Url = window.location.origin + "/user-active";
+    this.userService.registerUser(this.user)
       .subscribe((data: any) => {
         if (data) {
           this.resetForm(form);
