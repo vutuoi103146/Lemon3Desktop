@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ListUsersComponent } from './users/list-users/list-users.component';
 import { SignUpComponent } from './users/sign-up/sign-up.component';
+import { UserActiveComponent } from './users/user-active/user-active.component';
 
 
 const appRoutes: Routes = [
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
         ] },
     { path: 'login', component: LoginComponent },
     {  path : 'signup', component: SignUpComponent},
+    {  path : 'user-active', component: UserActiveComponent},
     { path: '**', redirectTo: '' }
 ];
 

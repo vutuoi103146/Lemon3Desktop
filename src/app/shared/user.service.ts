@@ -18,6 +18,12 @@ export class UserService {
     return this.http.post(this.rootUrl + '/api/user/Post', user,{headers : reqHeader});
   }
 
+  userActive(username: string, keyString: string) {
+    var reqHeader = new HttpHeaders({'Content-Type': 'application/json'});
+    let body ={username, keyString}
+    return this.http.post(this.rootUrl + '/api/user/userActive', body,{headers : reqHeader});
+}
+
   updateUser(user: T3UsersLogin) {
     var sql: Query =
     {

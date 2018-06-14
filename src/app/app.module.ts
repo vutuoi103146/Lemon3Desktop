@@ -12,8 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ListUsersComponent } from './users/list-users/list-users.component';
 import { UserService } from './shared/user.service';
 import { SignUpComponent } from './users/sign-up/sign-up.component';
-import { ToastrModule } from 'ngx-toast;
-import { UserActiveComponent } from './users/user-active/user-active.component'r';
+import { UserActiveComponent } from './users/user-active/user-active.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     imports: [
@@ -30,8 +30,8 @@ import { UserActiveComponent } from './users/user-active/user-active.component'r
         FooterComponent,
         LoginComponent,
         ListUsersComponent,
-        SignUpCompone,
-        UserActiveComponentnt
+        SignUpComponent,
+        UserActiveComponent
     ],
     providers: [
         AuthGuard,

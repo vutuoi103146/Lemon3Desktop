@@ -1,3 +1,10 @@
-<p>
-  user-active works!
-</p>
+<h1>
+  {{msg}}
+</h1>
+<div *ngIf = "isSuccess">
+  <a routerLink="/login">Login</a>
+</div>
+
+<div *ngIf = "!isSuccess">
+  
+</div>
