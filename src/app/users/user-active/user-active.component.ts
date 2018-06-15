@@ -18,9 +18,17 @@ export class UserActiveComponent implements OnInit {
       this.username = params["username"];
       this.keyString = params["keyString"];
       alert(this.username + " : " +  this.keyString)
-      this.userService.userActive(this.username, this.keyString).subscribe((data: any) => {
+      this.userService.userActive(this.username, this.keyString).subscribe((data: boolean) => {
+        if (data)
+        {
           this.msg ="Account active success."
           this.isSuccess = true;
+        }
+          else
+          {
+            this.msg ="Account active don't success."
+            this.isSuccess = false;
+          }
       },
         (err: Error) => {
           this.msg ="Account active don't success."
