@@ -9,32 +9,30 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserActiveComponent implements OnInit {
   isSuccess: boolean = false;
-  msg: string ="";
-  constructor(private userService : UserService, private router: ActivatedRoute) { }
-  private username : string;
-  private keyString : string
+  msg: string = "";
+  constructor(private userService: UserService, private router: ActivatedRoute) { }
+  private username: string;
+  private keyString: string
   ngOnInit() {
     this.router.queryParams.subscribe(params => {
       this.username = params["username"];
       this.keyString = params["keyString"];
-      alert(this.username + " : " +  this.keyString)
+      alert(this.username + " : " + this.keyString)
       this.userService.userActive(this.username, this.keyString).subscribe((data: boolean) => {
-        if (data)
-        {
-          this.msg ="Account active success."
+        if (data) {
+          this.msg = "Account active success."
           this.isSuccess = true;
         }
-          else
-          {
-            this.msg ="Account active don't success."
-            this.isSuccess = false;
-          }
+        else {
+          this.msg = "Account active don't success."
+          this.isSuccess = false;
+        }
       },
         (err: Error) => {
-          this.msg ="Account active don't success."
+          this.msg = "Account active don't success."
           this.isSuccess = false;
         });
-  });
+    });
   }
 
 }
