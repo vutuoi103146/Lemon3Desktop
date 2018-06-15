@@ -18,9 +18,8 @@ export class UserService {
   }
 
   userActive(username: string, keyString: string) {
-    var reqHeader = new HttpHeaders({'Content-Type': 'application/json'});
-    let body ={username, keyString}
-    return this.http.post(this.rootUrl + '/api/user/userActive', body,{headers : reqHeader});
+    let queryParam ="?username="+ username + "&keyString="+keyString
+    return this.http.get(this.rootUrl + '/api/user/userActive'+queryParam);
 }
 
   updateUser(user: T3UsersLogin) {
@@ -32,10 +31,8 @@ export class UserService {
     return  this.http.post(this.rootUrl+'/api/SqlServer/ExecSQL', sql, { headers: reqHeader });
   }
 
-  userAuthentication(userName, password) {
-    var data = "username=" + userName + "&password=" + password + "&grant_type=password";
-    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
-    return this.http.post(this.rootUrl + '/token', data, { headers: reqHeader });
+   userAuthentication(userName, password) {
+    return this.http.get(this.rootUrl + '/api/user/' + userName);
   }
 
   getUserClaims(){
